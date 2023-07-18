@@ -1,0 +1,40 @@
+#coffee-shops-show {
+  padding: 20px;
+  background-color: rgb(243,237,233);
+  background-size: cover;
+  color: black !important;
+  overflow-y: scroll;
+  height: 500px;
+}
+
+#coffee-shops-show p {
+  margin-top: 10px;
+}
+
+a {
+  color: black;
+  font-size: 1.5em;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  color: gray;
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.hours p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important
+}
+
