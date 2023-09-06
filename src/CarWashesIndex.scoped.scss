@@ -35,3 +35,9 @@ p {
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
+
+.col-sm-5 {
+  border: red;
+  border-width: 1em;
+  box-shadow: 0 0 1px black;
+}

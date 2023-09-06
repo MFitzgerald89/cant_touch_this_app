@@ -11,11 +11,11 @@ import { CarWashShow } from "./CarWashShow";
 import { Account } from "./Account";
 
 export function Content() {
-  const [carWashes, setCarWashes] = useState({});
-  const [currentCarWash, setCurrentCarWash] = useState({});
+  const [carWashes, setCarWashes] = useState([]);
+  const [currentCarWash, setCurrentCarWash] = useState([]);
   const [isSignupVisible, setIsSignupVisible] = useState(false);
   const [isCarWashVisible, setIsCarWashVisible] = useState(false);
-  const [currentUserShow, setCurrentUserShow] = useState({});
+  const [currentUserShow, setCurrentUserShow] = useState([]);
 
   const handleIndexCarWashes = () => {
     console.log("handleIndexCarWashes");
@@ -25,9 +25,9 @@ export function Content() {
     });
   };
 
-  const handleCarWashShow = (id) => {
+  const handleCarWashShow = (place_id) => {
     setIsCarWashVisible(true);
-    axios.get(`/car_washes/${id}`).then(function (response) {
+    axios.get(`http://localhost:3000/car_washes/${place_id}}`).then(function (response) {
       setCurrentCarWash(response.data.result);
     });
   };
@@ -38,20 +38,20 @@ export function Content() {
   };
 
   const handleUpdateLocation = (params) => {
-    axios.patch(`/users/${localStorage.getItem("user_id")}.json`, params).then((response) => {
+    axios.patch(`http://localhost:3000/users/${localStorage.getItem("user_id")}.json`, params).then((response) => {
       handleIndexCarWashes();
       setCurrentUserShow(response.data);
     });
   };
 
   const handleUserShow = (params) => {
-    axios.get(`/users/${localStorage.getItem("user_id")}.json`).then((response) => {
+    axios.get(`http://localhost:3000/users/${localStorage.getItem("user_id")}.json`).then((response) => {
       setCurrentUserShow(response.data);
     });
   };
 
   const handleUpdateUser = (params, id) => {
-    axios.patch(`/users/${id}.json`, params).then((response) => {
+    axios.patch(`http://localhost:3000/users/${id}.json`, params).then((response) => {
       handleIndexCoffeeShops();
       setCurrentUserShow(response.data);
     });
@@ -73,6 +73,7 @@ export function Content() {
           </>
         ) : (
           <>
+            <Route path="/login" element={<Login />} />
             <Route
               path="/"
               element={

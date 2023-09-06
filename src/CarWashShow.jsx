@@ -26,22 +26,24 @@ export function CarWashShow(props) {
       <p style={{ marginBottom: "0px" }}>
         <strong>Car Wash Hours</strong>
       </p>
-      {props.carWash?.opening_hours ? (
-        props.carWash.opening_hours.weekday_text.map((day) => (
-          <div key={props.carWash.opening_hours.weekday_text.indexOf(day)} className="hours">
+
+      {props.car_washes?.opening_hours ? (
+        props.car_washes.opening_hours.weekday_text.map((day, index) => (
+          <div key={index} className="hours">
             <p>{day}</p>
           </div>
         ))
       ) : (
         <></>
       )}
+
       {/* Reviews */}
       <p>
         <strong>Reviews</strong>
       </p>
-      {props.carWash?.reviews ? (
-        props.carWash.reviews.map((review) => (
-          <div key={props.carWash.reviews.indexOf(review)}>
+      {props.car_washes?.reviews ? (
+        props.car_washes.reviews.map((review) => (
+          <div key={props.car_washes.reviews.indexOf(review)}>
             <p style={{ margin: "0px" }}>{review.text}</p>
             <p style={{ marginTop: "0px", fontWeight: "bold" }}>- {review.author_name}</p>
           </div>
